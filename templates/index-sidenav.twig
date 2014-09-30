@@ -1,0 +1,110 @@
+<aside class=" skin-6">
+    <div class="sidebar-inner scrollable-sidebars">
+        <div class="size-toggle">
+            <a class="btn btn-sm" id="sizeToggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="btn btn-sm pull-right logoutConfirm_open"  href="#logoutConfirm">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div><!-- /size-toggle -->
+
+        <a href="/profile">
+            <div class="user-block clearfix">
+                {% if logedProfile.ProfileImage != '' %}
+                    <img src="/{{ logedProfile.ProfileImage }}" alt="User Avatar">
+                {% else %}
+                    <img src="/assets/img/default-profile.jpg" alt="User Avatar">
+                {% endif %}
+                <div class="detail">
+                    <strong>{{ logedUser.UserName | capitalize }}</strong>
+                    <p class="grey" style="font-size: 10px">{{ logedUser.EmailAddress }}</p>
+                </div>
+            </div><!-- /user-block -->
+        </a>
+
+
+
+        <div class="main-menu">
+            <ul>
+                <li class="openable open {% if menu == 'dashboard' %}active{% endif %}">
+                    <a href="/dashboard">
+								<span class="menu-icon">
+									<i class="fa fa-desktop fa-lg"></i>
+								</span>
+								<span class="text">
+									Dashboard
+								</span>
+                        <span class="menu-hover"></span>
+                    </a>
+                    <ul class="submenu">
+                        <li {% if submenu == 'home' %}class="active open"{% endif %}><a href="/"><span class="submenu-label">Welcome</span></a></li>
+                        {#<li><a href=""><span class="submenu-label">Template</span></a></li>#}
+                    </ul>
+                </li>
+
+                <!-- admin access-->
+                {% if logedUser.UserRole == 1 %}
+                <li class="openable open {% if menu == 'users' %}active{% endif %}">
+                    <a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-group fa-lg"></i>
+								</span>
+								<span class="text">
+									Users
+								</span>
+                        <span class="menu-hover"></span>
+                    </a>
+                    <ul class="submenu">
+                        <li {% if sudmenu == 'userList' %}class="active open"{% endif %}><a href="/user"><span class="submenu-label">User list</span></a></li>
+                        <li {% if sudmenu == 'addUser' %}class="active open"{% endif %}><a href="/addUser"><span class="submenu-label">Add user</span></a></li>
+                    </ul>
+                </li>
+                {% endif %}
+
+
+                {#<li class="openable">
+                    <a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-magic fa-lg"></i>
+								</span>
+								<span class="text">
+									Multi-Level menu
+								</span>
+                        <span class="menu-hover"></span>
+                    </a>
+                    <ul class="submenu second-level">
+                        <li class="openable">
+                            <a href="#">
+                                <span class="submenu-label">menu 2.1</span>
+                                <span class="badge badge-danger bounceIn animation-delay1 pull-right">3</span>
+                            </a>
+                            <ul class="submenu third-level">
+                                <li><a href="#"><span class="submenu-label">menu 3.1</span></a></li>
+                                <li><a href="#"><span class="submenu-label">menu 3.2</span></a></li>
+                                <li class="openable">
+                                    <a href="#">
+                                        <span class="submenu-label">menu 3.3</span>
+                                        <span class="badge badge-danger bounceIn animation-delay1 pull-right">2</span>
+                                    </a>
+                                    <ul class="submenu fourth-level">
+                                        <li><a href="#"><span class="submenu-label">menu 4.1</span></a></li>
+                                        <li><a href="#"><span class="submenu-label">menu 4.2</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>#}
+            </ul>
+
+            {#<div class="alert alert-info">
+                <strong>Free Subscription</strong><br>
+                To upgrade your subscription clcik here
+            </div>#}
+        </div><!-- /main-menu -->
+    </div><!-- /sidebar-inner -->
+</aside> <!-- /side-nav-->

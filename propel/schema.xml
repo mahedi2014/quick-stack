@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="quickstack" defaultIdMethod="native">
+
+    <behavior name="timestampable" />
+
+    <table name="user" phpName="User">
+        <column name="id" phpName="ID" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="uuid" phpName="UUID" type="char" size="36" required="true"/>
+        <column name="username" phpName="UserName" type="varchar" size="128" required="true"/>
+        <column name="email" phpName="EmailAddress" type="varchar" size="128" required="true"/>
+        <column name="password" phpName="Password" type="varchar" size="128" required="true"/>
+        <column name="role" phpName="UserRole" type="tinyint" required="true"/>
+        <column name="visible" phpName="IsVisible" type="tinyint" required="true"/>
+        <column name="status" phpName="Status" type="tinyint" required="true"/>
+    </table>
+
+    <table name="profile" phpName="Profile">
+        <column name="id" phpName="ID" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="uuid" phpName="UUID" type="char" size="36" required="true"/>
+        <column name="user_id" phpName="UserID" type="integer" required="true"/>
+        <column name="dealer_id" phpName="DealerID" type="integer" required="true"/>
+        <column name="first_name" phpName="FirstName" type="varchar" size="128"/>
+        <column name="last_name" phpName="LastName" type="varchar" size="128"/>
+        <column name="gender" phpName="Gender" type="enum" valueSet="male, female" />
+        <column name="date_of_birth" phpName="DateOfBirth" type="date" />
+        <column name="phone_number" phpName="PhoneNumber" type="varchar" size="30" />
+        <column name="mobile_number" phpName="MobileNumber" type="varchar" size="30" />
+        <column name="image" phpName="ProfileImage" type="LONGVARCHAR" />
+        <column name="company_name" phpName="CompanyName" type="varchar" size="128"/>
+        <column name="primary_address_street" phpName="PrimaryAddressStreet" type="varchar"/>
+        <column name="primary_address_street_2" phpName="PrimaryAddressStreet2" type="varchar"/>
+        <column name="primary_address_city" phpName="PrimaryAddressCity" type="varchar" size="128"/>
+        <column name="primary_address_state" phpName="PrimaryAddressState" type="varchar" size="128"/>
+        <column name="primary_address_post_code" phpName="PrimaryAddressPostCode" type="varchar" size="20"/>
+        <column name="primary_address_country" phpName="PrimaryAddressCountry" type="varchar" size="128"/>
+        <column name="billing_address_street" phpName="BillingAddressStreet" type="varchar"/>
+        <column name="billing_address_city" phpName="BillingAddressCity" type="varchar" size="128"/>
+        <column name="billing_address_state" phpName="BillingAddressState" type="varchar" size="128"/>
+        <column name="billing_address_post_code" phpName="BillingAddressPostCode" type="varchar" size="20"/>
+        <column name="billing_address_country" phpName="BillingAddressCountry" type="varchar" size="128"/>
+        <column name="security_question_1" phpName="FirstSecurityQuestion" type="varchar" size="128" />
+        <column name="security_answer_1" phpName="FirstSecurityQuestionAnswer" type="varchar" size="128" />
+        <column name="security_question_2" phpName="SecondSecurityQuestion" type="varchar" size="128" />
+        <column name="security_answer_2" phpName="SecondSecurityQuestionAnswer" type="varchar" size="128" />
+        <column name="security_question_custom" phpName="CustomSecurityQuestion" type="varchar" size="128" />
+        <column name="security_answer_custom" phpName="CustomSecurityAnswer" type="varchar" size="128" />
+
+        <foreign-key foreignTable="user" phpName="User" refPhpName="Profile">
+            <reference local="user_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+</database>

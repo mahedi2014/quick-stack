@@ -1,0 +1,58 @@
+{% extends 'signup-signin-layout.twig' %}
+{% block content %}
+
+
+    <div class="login-widget animation-delay1">
+        <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+                <div class="pull-left">
+                    <i class="fa fa-lock fa-lg"></i> Sign in
+                </div>
+
+                <div class="pull-right">
+                    <span style="font-size:11px;">Don't have any account?</span>
+                    <a class="btn btn-default btn-xs login-link" href="/signup" style="margin-top:-2px;"><i class="fa fa-plus-circle"></i> Sign up</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-login" action="/signin" method="post">
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" placeholder="Email address" class="form-control input-sm bounceIn animation-delay2" name="email" required="" >
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password" class="form-control input-sm bounceIn animation-delay4" name="password" required="">
+                    </div>
+                    {#<div class="form-group">
+                        <label class="label-checkbox inline">
+                            <input type="checkbox" class="regular-checkbox chk-delete" name="rememberme" />
+                            <span class="custom-checkbox info bounceIn animation-delay4"></span>
+                        </label>
+                        Remember me
+                    </div>
+
+                    <div class="seperator"></div>
+                    <div class="form-group">
+                        Forgot your password?<br/>
+                        Click <a href="#">here</a> to reset your password
+                    </div>#}
+
+                    <hr/>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10 controls text-right">
+                            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-sign-in"></i> Sign in</button>
+                        </div>
+                    </div><!-- /form-group -->
+
+                </form>
+            </div>
+        </div><!-- /panel -->
+    </div><!-- /login-widget -->
+
+
+{% endblock %}
+
+{% block csstop %}
+
+{% endblock %}

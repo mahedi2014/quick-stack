@@ -1,0 +1,100 @@
+{% extends 'index-layout.twig' %}
+{% block content %}
+    <div id="main-container">
+        <div class="padding-md">
+
+            {#<h3 class="headline m-top-md">#}
+               {#Users list#}
+                {#<span class="line"></span>#}
+            {#</h3>#}
+            <div class="panel panel-default table-responsive">
+                <div class="panel-heading">
+                    User list
+                    <span class="label label-info pull-right">{{ users | length }}  users</span>
+                </div>
+                <div class="padding-md clearfix">
+                    {% if users | length > 0 %}
+                        <table class="table table-striped" id="dataTable">
+                            <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Created At</th>
+                                <th>Role</th>
+                                <th>Visible</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for user in users %}
+
+                                <tr>
+                                    <td> <a href="/user/view/{{ user.UUID }}">{{ user.UserName }}</a></td>
+                                    <td><a href="/user/view/{{ user.UUID }}">{{  user.EmailAddress }}</a></td>
+                                    <td><a href="/user/view/{{ user.UUID }}">{{ user.CreatedAt | date("Y-M-d \\a\\t g:ia") }}</a></td>
+                                    {% if user.UserRole == 1 %}
+                                        <td><span class="label label-danger"><a href="/user/role/{{ user.UserRole }}/{{ user.UUID }}">Admin</a></span></td>
+                                    {% else %}
+                                        <td><span class="label label-success"><a href="/user/role/{{ user.UserRole }}/{{ user.UUID }}">General</a></span></td>
+                                    {% endif %}
+
+                                    {% if user.IsVisible == 1 %}
+                                        <td><span class="label label-success"><a href="/user/visibility/{{ user.IsVisible }}/{{ user.UUID }}">Visible</a></span></td>
+                                    {% else %}
+                                        <td><span class="label label-danger"><a href="/user/visibility/{{ user.IsVisible }}/{{ user.UUID }}">Invisible</a></span></td>
+                                    {% endif %}
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>No user yet now.</p>
+
+                    {% endif %}
+                </div><!-- /.padding-md -->
+            </div><!-- /panel -->
+        </div><!-- /.padding-md -->
+    </div><!-- /main-container -->
+
+
+{% endblock %}
+
+{% block csstop %}
+    <!-- Datatable -->
+    <link href="/assets/css/jquery.dataTables_themeroller.css" rel="stylesheet">
+{% endblock %}
+
+{% block jsbottom %}
+
+    <!-- Datatable -->
+    <script src='/assets/js/jquery.dataTables.min.js'></script>
+
+    <<script>
+    $(function	()	{
+        $('#dataTable').dataTable( {
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "iDisplayLength": 50,
+            "aaSorting": [
+                [ 2, "desc" ]
+            ]
+        });
+
+        $('#chk-all').click(function()	{
+            if($(this).is(':checked'))	{
+                $('#responsiveTable').find('.chk-row').each(function()	{
+                    $(this).prop('checked', true);
+                    $(this).parent().parent().parent().addClass('selected');
+                });
+            }
+            else	{
+                $('#responsiveTable').find('.chk-row').each(function()	{
+                    $(this).prop('checked' , false);
+                    $(this).parent().parent().parent().removeClass('selected');
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

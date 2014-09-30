@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Pace -->
+    <link href="/assets/css/pace.css" rel="stylesheet">
+
+    <!-- Endless -->
+    <link href="/assets/css/endless.min.css" rel="stylesheet">
+    <link href="/assets/css/endless-skin.css" rel="stylesheet">
+    <style>
+        #alerts {
+            position: fixed;
+            top: 45px;
+            left: 0;
+            right: 0;
+            z-index: 7000;
+            height: 45px;
+        }
+    </style>
+
+    {% block csstop %}
+    {% endblock %}
+
+    {% block jstop %}
+    {% endblock %}
+
+    {% block extraHeader %}
+    {% endblock %}
+
+
+</head>
+
+<body class="overflow-hidden">
+
+{% include 'flash.twig' %}
+<div id="wrapper" class="preload">
+    {% include 'index-topnav.twig' %}
+    {% include 'index-sidenav.twig' %}
+
+
+    {% block content %}
+    {% endblock %}
+
+</div><!-- /wrapper -->
+
+<a href="#" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Logout confirmation -->
+<div class="custom-popup width-100" id="logoutConfirm">
+    <div class="padding-md">
+        <h4 class="m-top-none"> Do you want to logout?</h4>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-success m-right-sm" href="/logout">Logout</a>
+        <a class="btn btn-danger logoutConfirm_close">Cancel</a>
+    </div>
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<!-- Jquery -->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Modernizr -->
+<script src='/assets/js/modernizr.min.js'></script>
+
+<!-- Pace -->
+<script src='/assets/js/pace.min.js'></script>
+
+<!-- Popup Overlay -->
+<script src='/assets/js/jquery.popupoverlay.min.js'></script>
+
+<!-- Slimscroll -->
+<script src='/assets/js/jquery.slimscroll.min.js'></script>
+
+<!-- Cookie -->
+<script src='/assets/js/jquery.cookie.min.js'></script>
+
+<!-- Endless -->
+<script src="/assets/js/endless/endless.js"></script>
+
+{% block cssbottom %}
+{% endblock %}
+
+{% block jsbottom %}
+{% endblock %}
+
+{% block extraFooter %}
+{% endblock %}
+
+</body>
+
+</html>
+
+

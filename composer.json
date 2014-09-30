@@ -1,0 +1,22 @@
+{
+    "name": "Rhino CMS",
+    "require": {
+        "php": ">=5.4.0",
+        "monolog/monolog": "1.*",
+        "slim/slim": "2.*",
+        "slim/views": "0.*",
+        "twig/twig": "1.*",
+        "propel/propel": "2.0.0-alpha2",
+        "guzzlehttp/guzzle": "4.*",
+        "ircmaxell/password-compat": "1.*",
+        "mandrill/mandrill": "1.0.*",
+        "respect/validation": "dev-master",
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "classmap": ["propel/generated-classes/"],
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ pageTitle }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Endless -->
+    <link href="/assets/css/endless.min.css" rel="stylesheet">
+
+    <style>
+        .text-success{
+            color: #FD6B0D;
+        }
+
+    </style>
+    {% block csstop %}
+    {% endblock %}
+
+    {% block jstop %}
+    {% endblock %}
+
+    {% block extraHeader %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+{% include 'flash.twig' %}
+
+<div class="login-wrapper">
+    <div class="text-center">
+        <h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+            <span class="text-success">RHINO<sup><small style="color: #FD6B0D">&reg</small></sup></span> <span style="color:#65CEA7; text-shadow:0 1px #fff">CMS</span>
+        </h2>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</div><!-- /login-wrapper -->
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<!-- Jquery -->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Modernizr -->
+<script src='/assets/js/modernizr.min.js'></script>
+
+<!-- Pace -->
+<script src='/assets/js/pace.min.js'></script>
+
+<!-- Popup Overlay -->
+<script src='/assets/js/jquery.popupoverlay.min.js'></script>
+
+<!-- Slimscroll -->
+<script src='/assets/js/jquery.slimscroll.min.js'></script>
+
+<!-- Cookie -->
+<script src='/assets/js/jquery.cookie.min.js'></script>
+
+<!-- Endless -->
+<script src="/assets/js/endless/endless.js"></script>
+
+{% block cssbottom %}
+{% endblock %}
+
+{% block jsbottom %}
+{% endblock %}
+
+{% block extraFooter %}
+{% endblock %}
+
+</body>
+</html>
