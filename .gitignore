@@ -19,4 +19,4 @@ propel/build.properties.php
 public/uploads/*
 logs/*
 
-propel/generated-conf/*
+!/propel/build.properties.sample
